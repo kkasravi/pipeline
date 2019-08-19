@@ -26,14 +26,14 @@ type PipelineSpec struct {
 	// Resources declares the names and types of the resources given to the
 	// Pipeline's tasks as inputs and outputs.
 	// +patchStrategy=merge
-	Resources []PipelineDeclaredResource `json:"resources,omitempty" patchStrategy:"merge"`
+	Resources []PipelineDeclaredResource `json:"resources,omitempty" patchStrategy:"merge" patchMergeKey:"name"`
 	// Tasks declares the graph of Tasks that execute when this Pipeline is run.
 	// +patchStrategy=merge
-	Tasks []PipelineTask `json:"tasks,omitempty" patchStrategy:"merge"`
+	Tasks []PipelineTask `json:"tasks,omitempty" patchStrategy:"merge" patchMergeKey:"name"`
 	// Params declares a list of input parameters that must be supplied when
 	// this Pipeline is run.
 	// +patchStrategy=merge
-	Params []ParamSpec `json:"params,omitempty" patchStrategy:"merge"`
+	Params []ParamSpec `json:"params,omitempty" patchStrategy:"merge" patchMergeKey:"name"`
 }
 
 // PipelineStatus does not contain anything because Pipelines on their own
